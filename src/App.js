@@ -20,9 +20,8 @@ function App() {
   
   return (
     <div className="App">
-      Hello
       <Search searchUser={searchUser}/>
-      <Link to='/repos'>{foundUser ? "Ver repositórios" : null}</Link>
+      <Link to='/repos'>{foundUser ? "Ver repositórios | " : null}</Link> 
       <Link to='/starred'>{foundUser ? "Ver favoritos" : null}</Link>
     </div>
   );

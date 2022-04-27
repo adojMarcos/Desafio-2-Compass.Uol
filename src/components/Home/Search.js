@@ -11,7 +11,7 @@ const Search = ( {searchUser} ) => {
       e.preventDefault()
       searchUser(user)
     }}>
-        <input type='text' onChange={(e) => setUser(e.target.value)}/>
+        <input value={user} type='text' onChange={(e) => setUser(e.target.value)}/>
         <button>Search</button>
     </form>
   )
