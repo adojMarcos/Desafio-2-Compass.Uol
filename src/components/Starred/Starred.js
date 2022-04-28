@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import StarredItem from './StarredItem/StarredItem'
 
 const Starred = () => {
 
@@ -15,7 +16,9 @@ const Starred = () => {
     }, [])
 
   return (
-    <div>{starredRepos ? starredRepos.map(x => <div key={x.id}>{x.name}</div>) : null}</div>
+    <div className='container'>
+      {starredRepos ? starredRepos.map(repo => <StarredItem repo={repo}/>) : null}
+    </div>
   )
 }
 
