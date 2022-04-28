@@ -5,6 +5,7 @@ import Router from './Router';
 import { configureStore } from '@reduxjs/toolkit'
 import UserReducer from './reducer/UserReducer';
 import { Provider } from 'react-redux';
+import Footer from './components/Footer/Footer';
 
 const store = configureStore({reducer: UserReducer})
 
@@ -14,7 +15,7 @@ root.render(
     <Provider store={store}>
       <h1>HEADER</h1>
         <Router />
-      <h1>footer</h1>
+      <Footer />
     </Provider>
     
     
