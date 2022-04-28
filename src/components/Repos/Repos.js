@@ -8,7 +8,6 @@ const Repos = () => {
     const [repos, setRepos] = useState()
 
     const user = useSelector(state => state)
-    console.log(user)
 
     useEffect(() => {
         axios.get(user.repos_url).then(result => setRepos(result.data))

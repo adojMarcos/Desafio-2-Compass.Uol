@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 
-const Search = ( {searchUser} ) => {
+const Search = ( { searchUser } ) => {
 
   const [user, setUser] = useState()
 

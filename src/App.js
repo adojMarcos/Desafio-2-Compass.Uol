@@ -5,6 +5,7 @@ import axios from './services/axios'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUser } from './reducer/UserReducer'
+import UserCard from './components/UserCard/UserCard';
 
 function App() {
 
@@ -21,8 +22,7 @@ function App() {
   return (
     <div className="App">
       <Search searchUser={searchUser}/>
-      <Link to='/repos'>{foundUser ? "Ver repositórios | " : null}</Link> 
-      <Link to='/starred'>{foundUser ? "Ver favoritos" : null}</Link>
+      {foundUser ? <UserCard /> : null}
     </div>
   );
 }

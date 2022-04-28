@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUser } from './reducer/UserReducer'
 import React from 'react'
+import UserCard from '../UserCard/UserCard';
+
 
 const Main = () => {
     const [foundUser, setFoundUser] = useState()
@@ -18,10 +20,12 @@ const Main = () => {
     }
 
     return (
-        <div className="App">
-        <Search searchUser={searchUser}/>
-        <Link to='/repos'>{foundUser ? "Ver repositórios | " : null}</Link> 
-        <Link to='/starred'>{foundUser ? "Ver favoritos" : null}</Link>
+        <div >
+            <Search searchUser={searchUser}/>
+            <Link to='/repos'>{foundUser ? "Ver repositórios | " : null}</Link> 
+            <Link to='/starred'>{foundUser ? "Ver favoritos" : null}</Link>
+            <UserCard />
+            <h1>kjdfçdfsç</h1>
         </div>
     )
 }
