@@ -68,6 +68,7 @@ header {
 .user_card-container {
   background-color: #393E46;
   margin: auto;
+  margin-top: 10px;
   max-width: 30%;
   color: #EEEEEE;
   padding: 10px;
@@ -90,13 +91,13 @@ header {
   padding: 10px;
   background-color: #00ADB5;
   border: none;
-  color: #EEEEEE
+  color: #EEEEEE;
+  border-radius: 3px;
 }
 
 .nav-buttons > a > button:hover {
   cursor: pointer;
 }
-
 
 .user_img {
   max-width: 150px;
