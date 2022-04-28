@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  position: relative;
 }
 
 html {
@@ -24,10 +25,11 @@ code {
 }
 
 footer {
+  margin-top: 20px;
   color: white;
   text-align: center;
   background-color: #222831;
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   height: 40px;
@@ -70,6 +72,7 @@ header {
   margin: auto;
   margin-top: 10px;
   max-width: 30%;
+  min-width: 30%;
   color: #EEEEEE;
   padding: 10px;
   border-radius: 20px;
@@ -103,4 +106,21 @@ header {
   max-width: 150px;
   border: 5px solid #00ADB5;
   border-radius: 50%;
+}
+
+.container {
+  margin: auto;
+  height: auto;
+  background-color: #00ADB5;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: start;
+
+}
+
+.repo-item {
+  padding: 10px;
+  min-width: 20%;
+  max-width: 20%;
 }
