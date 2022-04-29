@@ -1,0 +1,34 @@
+.form-search-user {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'Akshar', sans-serif;
+}
+
+.search-user {
+    padding: 1rem;
+    border-radius: 10rem;
+    margin-right: 1rem;
+    border: 1px solid #00ADB5;
+    color: #57677e;
+    outline: none;
+    font-size: 1.6rem;
+    font-family: 'Akshar', sans-serif;
+}
+
+.search-button {
+    padding: 1rem;
+    background-color: #00ADB5;
+    border: none;
+    color: #EEEEEE;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: all 0.3s ease-in;
+    font-family: 'Akshar', sans-serif;
+
+}
+
+.search-button:hover {
+    background-color: #018991;
+    transform: scaleX(1.1);
+}
