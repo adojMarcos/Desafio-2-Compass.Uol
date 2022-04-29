@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 
-
-
 const Search = ( { searchUser } ) => {
 
-  const [user, setUser] = useState()
+  const [user, setUser] = useState('')
+  
 
   return (
     <form onSubmit={(e) => {
@@ -13,6 +12,7 @@ const Search = ( { searchUser } ) => {
     }}>
         <input value={user} type='text' onChange={(e) => setUser(e.target.value)}/>
         <button>Search</button>
+       
     </form>
   )
 }

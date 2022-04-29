@@ -109,13 +109,14 @@ header {
 }
 
 .container {
-  margin: auto;
+  margin: 10px;
   height: auto;
+  word-wrap: break-word;
   background-color: #00ADB5;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
 
 }
 

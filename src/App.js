@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import Search from './components/Home/Search';
 import axios from './services/axios'
-import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUser } from './reducer/UserReducer'
 import UserCard from './components/UserCard/UserCard';
@@ -10,10 +9,17 @@ import UserCard from './components/UserCard/UserCard';
 function App() {
 
   const [foundUser, setFoundUser] = useState()
+  const [message, setMessage] = useState('')
+  
   const dispatch = useDispatch()
 
   const searchUser = async (user) => {
-    const result = await axios.getAll(user)
+    const result = await axios.getAll(user).catch(error => {
+      setMessage('User not found.')
+      setTimeout(() => {
+        setMessage('')
+      }, 3000);
+    })
     dispatch(setUser(result))
     setFoundUser(result)
   }
@@ -23,6 +29,7 @@ function App() {
     <div className="App">
       <Search searchUser={searchUser}/>
       {foundUser ? <UserCard /> : null}
+      <p>{message}</p>
     </div>
   );
 }
