@@ -7,6 +7,10 @@ const userSlice = createSlice({
         setUser(state, action) {
             state = action.payload
             return state
+        },
+        clean(state) {
+            state = undefined
+            return state
         }
     }
 })

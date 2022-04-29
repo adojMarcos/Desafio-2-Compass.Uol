@@ -63,6 +63,10 @@ header {
   font-weight: bold;
 }
 
+.user-card-container-inactive {
+  opacity: 0;
+}
+
 .user_card-container {
   box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.7);
   background-color: #393E46;
@@ -74,6 +78,8 @@ header {
   padding: 10px;
   border-radius: 20px;
   font-size: 1.6rem;
+  transition: all 0.6s ease-in-out;
+  opacity: 1;
 }
 
 .user_card-container > *:not(:first-child) {
@@ -95,6 +101,12 @@ header {
   color: #EEEEEE;
   border-radius: 3px;
   font-family: 'Akshar', sans-serif;
+  transition: all 0.3s ease-in;
+}
+
+.nav-buttons > a > button:hover {
+  background-color: #018991;
+  transform: scaleX(1.1);
 }
 
 .nav-buttons > a > button:hover {
@@ -107,6 +119,8 @@ header {
   border-radius: 50%;
 }
 
+
+
 .container {
   margin: 10px;
   height: auto;
@@ -116,7 +130,7 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: flex-start;
-
+  transition: all 0.3s ease-in;
 }
 
 .repo-item {

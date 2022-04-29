@@ -10,25 +10,32 @@ function App() {
 
   const [foundUser, setFoundUser] = useState()
   const [message, setMessage] = useState('')
+  const [cardClass, setCardClass] = useState('user-card-container-inactive')
   
   const dispatch = useDispatch()
 
   const searchUser = async (user) => {
+    setCardClass('user-card-container-inactive')
     const result = await axios.getAll(user).catch(error => {
       setMessage('User not found.')
+      setUser('')
       setTimeout(() => {
         setMessage('')
       }, 3000);
     })
-    dispatch(setUser(result))
-    setFoundUser(result)
+
+    if(result) {
+      dispatch(setUser(result))
+      setFoundUser(result)
+      setCardClass('user_card-container')
+    }   
   }
 
   
   return (
     <div className="App">
       <Search searchUser={searchUser}/>
-      {foundUser ? <UserCard /> : null}
+      <UserCard cardClass={cardClass}/>
       <p>{message}</p>
     </div>
   );

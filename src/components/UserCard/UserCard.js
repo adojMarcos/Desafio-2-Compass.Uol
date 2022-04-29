@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 
-const UserCard = () => {
+const UserCard = ( { cardClass }  ) => {
 
     const user = useSelector(state => state)
 
   return (
-      <div className='user_card-container'>
+      <div className={cardClass}>
           <img src={user.avatar_url} alt="user photo" className="user_img" />
           <p>{user.name}</p>
           <p>{user.bio}</p>
