@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     transition: all 0.3s ease-in;
+    justify-content: center;
   }
   
   
@@ -13,20 +14,4 @@
 
 
 
-  @media(min-width: 353px)  and (max-width:500px)
-  {
-    .repo-item {
-        padding: 10px;
-        min-width: 30%;
-        max-width: 30%;
-      }
-   }
-
-   @media(min-width: 100px)  and (max-width:352px)
-  {
-    .repo-item {
-        padding: 10px;
-        min-width: 100%;
-        max-width: 100%;
-      }
-   }
+ 
