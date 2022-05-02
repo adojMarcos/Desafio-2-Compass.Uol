@@ -4,6 +4,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import RepoItem from './RepoItem.js/RepoItem'
 
+import './style.css'
+
 const Repos = () => {
 
     const [repos, setRepos] = useState()
@@ -18,7 +20,7 @@ const Repos = () => {
 
   return (
     <div className='container'>
-      {repos ? repos.map(repo => <RepoItem repo={repo}/>) : null}
+      {repos ? repos.map(repo => <RepoItem key={repo.id} repo={repo}/>) : null}
     </div>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import StarredItem from './StarredItem/StarredItem'
+import RepoItem from '../Repos/RepoItem.js/RepoItem'
 
 const Starred = () => {
 
@@ -17,7 +17,7 @@ const Starred = () => {
 
   return (
     <div className='container'>
-      {starredRepos ? starredRepos.map(repo => <StarredItem repo={repo}/>) : null}
+      {starredRepos ? starredRepos.map(repo => <RepoItem key={repo.id} repo={repo}/>) : null}
     </div>
   )
 }

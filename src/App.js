@@ -9,7 +9,7 @@ import UserCard from './components/UserCard/UserCard';
 function App() {
 
   const [foundUser, setFoundUser] = useState()
-  const [message, setMessage] = useState('')
+  const [messageClass, setMessageClass] = useState('error-message-container-disabled')
   const [cardClass, setCardClass] = useState('user-card-container-inactive')
   
   const dispatch = useDispatch()
@@ -17,10 +17,10 @@ function App() {
   const searchUser = async (user) => {
     setCardClass('user-card-container-inactive')
     const result = await axios.getAll(user).catch(error => {
-      setMessage('User not found.')
+      setMessageClass('error-message-container-active')
       setUser('')
       setTimeout(() => {
-        setMessage('')
+        setMessageClass('error-message-container-disabled')
       }, 3000);
     })
 
@@ -36,7 +36,10 @@ function App() {
     <div className="App">
       <Search searchUser={searchUser}/>
       <UserCard cardClass={cardClass}/>
-      <p>{message}</p>
+      <div className={messageClass}>
+        <p>User not found.</p>
+      </div>
+      
     </div>
   );
 }

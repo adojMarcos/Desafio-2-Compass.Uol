@@ -120,25 +120,6 @@ header {
 }
 
 
-
-.container {
-  margin: 10px;
-  height: auto;
-  word-wrap: break-word;
-  background-color: #00ADB5;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  transition: all 0.3s ease-in;
-}
-
-.repo-item {
-  padding: 10px;
-  min-width: 20%;
-  max-width: 20%;
-}
-
 @media(min-width: 120px)  and (max-width:850px)
 {
     .user_card-container{
@@ -152,4 +133,24 @@ header {
     .user_card-container span {
       display: block;
     }
+ }
+
+.error-message-container-disabled {
+  opacity: 0;
+
+ }
+
+.error-message-container-active {
+  font-size: 2rem;
+  background-color: #ff9999;
+  color: #393E46;
+  margin: auto;
+  width: 20%;
+  height: 5rem;
+  border: 0.2rem solid #dc143c;
+  border-radius: 1rem;
+  line-height: 5rem;
+  text-align: center;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
  }
