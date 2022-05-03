@@ -1,3 +1,19 @@
+.repo-container {
+  margin: 1.5rem 0 1.5rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.navigation-arrow {
+  position: absolute;
+  left: 1.5rem;
+  color: '#222831'
+}
+
+.navigation-arrow:hover {
+  cursor: pointer;
+}
+
 .container {
     margin: 10px 10px 0 10px;
     word-wrap: break-word;
@@ -7,6 +23,8 @@
     transition: all 0.3s ease-in;
     justify-content: center;
   }
+
+
   
   
 

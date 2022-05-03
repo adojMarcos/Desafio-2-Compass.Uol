@@ -5,11 +5,10 @@ import './style.css'
 
 <i class="fa-solid fa-code-fork"></i>
 
-const RepoItem = ({repo}) => {
-
-  
+const RepoItem = ({repo, index}) => {
+  console.log(index)
   return (
-    <div key={repo.id} className="repo-item">
+    <div key={repo.id} className="repo-item" style={{animationDelay: `${(index + 1) * 0.2}s`}}>
         <h3><a target="_blank" href={repo.html_url} style={{textDecoration: 'none', color: '#EEEEEE', fontSize: '1.6rem'}}>{repo.name}</a></h3>
         <p style={{marginBottom: '3rem'}}>{repo.description}</p>
         <div className="repo-item-info">

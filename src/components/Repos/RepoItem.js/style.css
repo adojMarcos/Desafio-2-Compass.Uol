@@ -10,7 +10,20 @@
     border: 3px solid #222831;
     color: #EEEEEE;
     border-radius: 0.6em;
+    opacity: 0;
     transition: all 0.2s ease-in-out;
+    animation: fade-In 1s;
+    animation-fill-mode: forwards;
+    
+  }
+
+  @keyframes fade-In {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
 .repo-item-info {

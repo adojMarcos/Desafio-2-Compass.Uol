@@ -5,6 +5,7 @@ import axios from '../../services/axios'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../reducer/UserReducer'
 import UserCard from '../UserCard/UserCard';
+import Logo from '../../images/logo.png'
 
 function Home() {
 
