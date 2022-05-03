@@ -1,13 +1,13 @@
 .App {
   text-align: center;
   height: 400px;
-  position: relative;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 
 .App-header {

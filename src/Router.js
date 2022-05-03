@@ -10,11 +10,11 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Header />
-          <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="repos" element={<Repos />} />
-                <Route path="starred" element={<Starred />} />
-          </Routes>
+            <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="repos" element={<Repos />} />
+                  <Route path="starred" element={<Starred />} />
+            </Routes>   
       <Footer />
     </BrowserRouter>
   )

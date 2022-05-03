@@ -6,11 +6,14 @@ import RepoCard from '../Repos/RepoCard/RepoCard'
 import { useNavigate } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 
 const Starred = () => {
 
     const [starredRepos, setStarredRepos] = useState()
+    const [isLoading, setIsLoading] = useState(false)
+
     const navigate = useNavigate()
 
     const handleOnClick = () => {
@@ -20,7 +23,11 @@ const Starred = () => {
     const user = useSelector(state => state)
 
     useEffect(() => {
-        axios.get(user.starred_url.split('{')[0]).then(result => setStarredRepos(result.data))
+      setIsLoading(true)
+      axios.get(user.starred_url.split('{')[0]).then(result => {
+        setStarredRepos(result.data)
+        setIsLoading(true)
+      })
     }, [user.starred_url])
 
   return (
@@ -33,6 +40,7 @@ const Starred = () => {
                 : 
                 null}
       </div>
+      {isLoading ? <LoadingSpinner /> : null}
     </div>
   )
 }

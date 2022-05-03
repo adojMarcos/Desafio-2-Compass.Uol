@@ -7,10 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import { useNavigate } from 'react-router'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const Repos = () => {
 
     const [repos, setRepos] = useState()
+    const [isLoading, setIsLoading] = useState(false)
+
     const navigate = useNavigate()
 
     const handleOnClick = () => {
@@ -20,7 +23,12 @@ const Repos = () => {
     const user = useSelector(state => state)
 
     useEffect(() => {
-        axios.get(user.repos_url).then(result => setRepos(result.data))
+        setIsLoading(true);
+        axios.get(user.repos_url).then(result => {
+          setRepos(result.data)
+          setIsLoading(false);
+        })
+        
     }, [user.repos_url])
     
 
@@ -34,6 +42,7 @@ const Repos = () => {
                 : 
                 null}
       </div>
+      {isLoading ? <LoadingSpinner /> : null}
     </div>
   )
 }
