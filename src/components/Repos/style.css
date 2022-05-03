@@ -4,10 +4,36 @@
   position: relative;
 }
 
+.repo-container h1 {
+  color: #393E46;
+  opacity: 0;
+  animation: fade-In 1.5s ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-In {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .navigation-arrow {
   position: absolute;
-  left: 1.5rem;
-  color: '#222831'
+  color: '#222831';
+  animation: enter-left 1.5s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes enter-left {
+  0% {
+    left: -5rem
+  }
+  100% {
+    left: 1.5rem
+  }
 }
 
 .navigation-arrow:hover {

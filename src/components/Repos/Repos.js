@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import RepoItem from './RepoItem.js/RepoItem'
+import RepoCard from './RepoCard/RepoCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
@@ -21,7 +21,7 @@ const Repos = () => {
 
     useEffect(() => {
         axios.get(user.repos_url).then(result => setRepos(result.data))
-    }, [])
+    }, [user.repos_url])
     
 
   return (
@@ -30,7 +30,7 @@ const Repos = () => {
       <h1>{user.name} Repositories</h1>
       <div className='container'>  
         {repos ? repos.sort((a, b) => b.forks_count - a.forks_count)
-                      .map((repo, i) => <RepoItem key={repo.id} repo={repo} index={i}/>) 
+                      .map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>) 
                 : 
                 null}
       </div>

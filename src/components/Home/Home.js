@@ -1,15 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../App.css';
 import Search from '../Search/Search';
 import axios from '../../services/axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../../reducer/UserReducer'
 import UserCard from '../UserCard/UserCard';
-import Logo from '../../images/logo.png'
 
 function Home() {
 
-  const [foundUser, setFoundUser] = useState()
   const [messageClass, setMessageClass] = useState('error-message-container-disabled')
   const [cardClass, setCardClass] = useState('user-card-container-inactive')
   
@@ -27,12 +25,13 @@ function Home() {
 
     if(result) {
       dispatch(setUser(result))
-      setFoundUser(result)
       setCardClass('user_card-container')
     }   
   }
 
-  
+  useEffect(() => {
+  }, [])
+
   return (
     <div className="App">
       <Search searchUser={searchUser}/>
