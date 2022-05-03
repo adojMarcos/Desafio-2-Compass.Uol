@@ -26,7 +26,7 @@ const Starred = () => {
       setIsLoading(true)
       axios.get(user.starred_url.split('{')[0]).then(result => {
         setStarredRepos(result.data)
-        setIsLoading(true)
+        setIsLoading(false)
       })
     }, [user.starred_url])
 

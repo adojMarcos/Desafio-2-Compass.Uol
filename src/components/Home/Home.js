@@ -19,6 +19,7 @@ function Home() {
     setIsLoading(true);
     setCardClass('user-card-container-inactive')
     const result = await axios.getAll(user).catch(error => {
+      setIsLoading(false);
       setMessageClass('error-message-container-active')
       setUser('')
       setTimeout(() => {
