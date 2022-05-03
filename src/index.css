@@ -78,8 +78,16 @@ header {
   padding: 10px;
   border-radius: 20px;
   font-size: 1.6rem;
-  transition: all 0.6s ease-in-out;
-  opacity: 1;
+  animation: fade-In 1.5s ease-in forwards;
+}
+
+@keyframes fade-In {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
 
 .user_card-container > *:not(:first-child) {
