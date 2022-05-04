@@ -1,31 +1,25 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import RepoCard from './RepoCard/RepoCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { useGoBack } from '../../services/goBack'
+import { useFetch } from '../../services/useFetch'
 
 const Repos = () => {
 
     const goBack = useGoBack()
-    const [repos, setRepos] = useState()
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, fetch] = useFetch()
 
-
-    const user = useSelector(state => state)
+    const repos = useSelector(state => state.repos)
+    const user = useSelector(state => state.user)
 
     useEffect(() => {
-        setIsLoading(true);
-        axios.get(user.repos_url).then(result => {
-          setRepos(result.data)
-          setIsLoading(false);
-        })
-        
-    }, [user.repos_url])
+      fetch(user.repos_url)     
+    }, [])
     
 
   return (
@@ -33,7 +27,7 @@ const Repos = () => {
       <FontAwesomeIcon onClick={goBack} color='#393E46' icon={faArrowCircleLeft} size='3x' className="navigation-arrow"/>
       <h1 className="repo-container-text">{user.name} Repositories</h1>
       <div className='container'>  
-        {repos ? repos.sort((a, b) => b.forks_count - a.forks_count)
+        {repos ? repos
                       .map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>) 
                 : 
                 null}
@@ -44,3 +38,4 @@ const Repos = () => {
 }
 
 export default Repos
+//.sort((a, b) => b.forks_count - a.forks_count)

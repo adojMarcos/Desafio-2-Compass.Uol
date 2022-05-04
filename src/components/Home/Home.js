@@ -15,7 +15,7 @@ function Home() {
   const [cardClass, setCardClass] = useState('user-card-container-inactive')
   const [isLoading, setIsLoading] = useState(false)
 
-  const user = useSelector(state => state)
+  const user = useSelector(state => state.user)
 
   const dispatch = useDispatch()
 

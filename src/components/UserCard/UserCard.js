@@ -5,7 +5,7 @@ import './style.css'
 
 const UserCard = ( { cardClass }  ) => {
 
-    const user = useSelector(state => state)
+    const user = useSelector(state => state.user)
     console.log(user)
 
   return (

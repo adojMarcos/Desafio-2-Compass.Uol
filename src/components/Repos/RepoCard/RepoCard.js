@@ -6,7 +6,6 @@ import './style.css'
 <i class="fa-solid fa-code-fork"></i>
 
 const RepoCard = ({repo, index}) => {
-  console.log(index)
   return (
     <div key={repo.id} className="repo-card" style={{animationDelay: `${(index + 1) * 0.2}s`}}>
         <h3><a className="repo-card-link" target="_blank" rel="noreferrer" href={repo.html_url}>{repo.name}</a></h3>

@@ -8,30 +8,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { useGoBack } from '../../services/goBack'
+import { useFetch } from '../../services/useFetch'
+
 
 
 const Starred = () => {
 
     const goBack = useGoBack()
-    const [starredRepos, setStarredRepos] = useState()
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, fetch] = useFetch()
 
-    const user = useSelector(state => state)
+    const user = useSelector(state => state.user)
+    const starredRepos = useSelector(state => state.repos)
 
     useEffect(() => {
-      setIsLoading(true)
-      axios.get(user.starred_url.split('{')[0]).then(result => {
-        setStarredRepos(result.data)
-        setIsLoading(false)
-      })
-    }, [user.starred_url])
+      fetch(user.starred_url.split('{')[0])
+    }, [])
 
   return (
     <div className="repo-container">
       <FontAwesomeIcon onClick={goBack} color='#393E46' icon={faArrowCircleLeft} size='3x' className="navigation-arrow"/>
       <h1>{user.name} Starred Repos</h1>
       <div className='container'>  
-        {starredRepos ? starredRepos.sort((a, b) => b.forks_count - a.forks_count)
+        {starredRepos ? starredRepos
                       .map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>) 
                 : 
                 null}
@@ -41,5 +39,6 @@ const Starred = () => {
   )
 }
 
-
 export default Starred
+
+//.sort((a, b) => b.forks_count - a.forks_count)
