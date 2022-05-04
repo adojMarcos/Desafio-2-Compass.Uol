@@ -33,7 +33,7 @@ const Starred = () => {
   return (
     <div className="repo-container">
       <FontAwesomeIcon onClick={handleOnClick} color='#393E46' icon={faArrowCircleLeft} size='3x' className="navigation-arrow"/>
-      <h1>{user.name} Repositories</h1>
+      <h1>{user.name} Starred Repos</h1>
       <div className='container'>  
         {starredRepos ? starredRepos.sort((a, b) => b.forks_count - a.forks_count)
                       .map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>) 

@@ -6,6 +6,7 @@ import './style.css'
 const UserCard = ( { cardClass }  ) => {
 
     const user = useSelector(state => state)
+    console.log(user)
 
   return (
       <div className={cardClass}>

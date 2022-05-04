@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../App.css';
 import Search from '../Search/Search';
 import axios from '../../services/axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../../reducer/UserReducer'
 import UserCard from '../UserCard/UserCard';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import './style.css'
+
 
 function Home() {
 
@@ -14,9 +15,12 @@ function Home() {
   const [cardClass, setCardClass] = useState('user-card-container-inactive')
   const [isLoading, setIsLoading] = useState(false)
 
+  const user = useSelector(state => state)
+
   const dispatch = useDispatch()
 
   const searchUser = async (user) => {
+    dispatch(setUser({}))
     setIsLoading(true);
     setCardClass('user-card-container-inactive')
     const result = await axios.getAll(user).catch(error => {
@@ -34,6 +38,10 @@ function Home() {
       setIsLoading(false)
     }   
   }
+
+  useEffect(() => {
+    if(user.name) setCardClass('user_card-container')
+  })
 
   return (
     <div className="App">

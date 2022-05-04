@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  height: 400px;
+  height: 90vh;
+  padding-bottom: 2rem;
 }
 
 .App-logo {
