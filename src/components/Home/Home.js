@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../../App.css';
 import Search from '../Search/Search';
 import axios from '../../services/axios'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setUser } from '../../reducer/UserReducer'
 import UserCard from '../UserCard/UserCard';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import './style.css'
 
 function Home() {
 

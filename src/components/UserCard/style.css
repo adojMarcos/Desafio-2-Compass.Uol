@@ -1,0 +1,79 @@
+.user-card-container-inactive {
+    opacity: 0;
+  }
+  
+  .user_card-container {
+    box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.7);
+    background-color: #393E46;
+    margin: auto;
+    width: 5rem;
+    max-width: 30%;
+    min-width: 30%;
+    color: #EEEEEE;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 1.6rem;
+    animation: fade-In 1.5s ease-in forwards;
+  }
+  
+  @keyframes fade-In {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  
+  .user_card-container > *:not(:first-child) {
+    margin: 20px; 
+  } 
+  
+  .user_card-container span {
+    padding: 10px
+  }
+  
+  .nav-buttons > a {
+    padding: 10px;
+  }
+  
+  .nav-buttons > a > button {
+    padding: 10px;
+    background-color: #00ADB5;
+    border: none;
+    color: #EEEEEE;
+    border-radius: 3px;
+    font-family: 'Akshar', sans-serif;
+    transition: all 0.3s ease-in;
+  }
+  
+  .nav-buttons > a > button:hover {
+    background-color: #018991;
+    transform: scaleX(1.1);
+  }
+  
+  .nav-buttons > a > button:hover {
+    cursor: pointer;
+  }
+  
+  .user_img {
+    max-width: 150px;
+    border: 5px solid #00ADB5;
+    border-radius: 50%;
+  }
+  
+  
+  @media(min-width: 120px)  and (max-width:850px)
+  {
+      .user_card-container{
+       min-width: 60%;
+      }
+  
+      .nav-buttons > a  :first-child {
+        margin-bottom: 1.5rem;
+      }
+  
+      .user_card-container span {
+        display: block;
+      }
+   }

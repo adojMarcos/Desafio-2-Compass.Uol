@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import './style.css'
 
 const UserCard = ( { cardClass }  ) => {
 
@@ -8,7 +9,7 @@ const UserCard = ( { cardClass }  ) => {
 
   return (
       <div className={cardClass}>
-          <img src={user.avatar_url} alt="user photo" className="user_img" />
+          <img src={user.avatar_url} alt="user avatar" className="user_img" />
           <p>{user.name}</p>
           <p>{user.bio}</p>
           <div>

@@ -9,7 +9,7 @@ const RepoCard = ({repo, index}) => {
   console.log(index)
   return (
     <div key={repo.id} className="repo-card" style={{animationDelay: `${(index + 1) * 0.2}s`}}>
-        <h3><a className="" target="_blank" rel="noreferrer" href={repo.html_url} style={{textDecoration: 'none', color: '#EEEEEE', fontSize: '1.6rem'}}>{repo.name}</a></h3>
+        <h3><a className="repo-card-link" target="_blank" rel="noreferrer" href={repo.html_url}>{repo.name}</a></h3>
         <p style={{marginBottom: '3rem'}}>{repo.description}</p>
         <div className="repo-card-info">
           <span style={{marginRight: '1rem'}}><FontAwesomeIcon icon={faCodeBranch} style={{marginRight: '0.5rem'}}/>{repo.forks_count}</span>

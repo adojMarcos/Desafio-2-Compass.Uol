@@ -1,0 +1,17 @@
+footer {
+    font-size: 1.6rem;
+    color: white;
+    text-align: center;
+    background-color: #222831;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+footer p {
+    font-weight: bold;
+}

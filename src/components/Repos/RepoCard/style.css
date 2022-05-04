@@ -13,8 +13,7 @@
     opacity: 0;
     transition: all 0.2s ease-in-out;
     animation: fade-In 1s;
-    animation-fill-mode: forwards;
-    
+    animation-fill-mode: forwards;   
   }
 
   @keyframes fade-In {
@@ -54,3 +53,9 @@
         max-width: 100%;
       }
    }
+
+.repo-card-link {
+  text-decoration: none;
+  color: #EEEEEE;
+  font-size: 1.6rem
+}
