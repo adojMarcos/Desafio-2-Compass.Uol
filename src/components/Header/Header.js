@@ -2,20 +2,16 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
-import { useNavigate } from 'react-router'
+import { useGoBack } from '../../services/goBack'
 
 
 const Header = () => {
 
-  const navigate = useNavigate()
-
-  const handleOnClick = () => {
-    navigate(-1)
-  }
-
+  const goBack = useGoBack()
+  
   return (
     <header>
-        <div  onClick={handleOnClick} className='wrapper_header'>
+        <div onClick={goBack} className='wrapper_header'>
             <FontAwesomeIcon icon={faCodeBranch} size='2x' />
             <span>Git Search</span>
         </div>
