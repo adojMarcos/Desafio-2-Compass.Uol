@@ -1,14 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import RepoCard from '../Repos/RepoCard/RepoCard'
-import { useNavigate } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
-import { useGoBack } from '../../services/goBack'
-import { useFetch } from '../../services/useFetch'
+import { useGoBack } from '../../customHooks/goBack'
+import { useFetch } from '../../customHooks/useFetch'
 
 
 
@@ -22,7 +20,7 @@ const Starred = () => {
 
     useEffect(() => {
       fetch(user.starred_url.split('{')[0])
-    }, [])
+    }, [fetch, user.starred_url])
 
   return (
     <div className="repo-container">

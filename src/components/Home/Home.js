@@ -23,7 +23,7 @@ function Home() {
     dispatch(setUser({}))
     setIsLoading(true);
     setCardClass('user-card-container-inactive')
-    const result = await axios.getAll(user).catch(error => {
+    const result = await axios.getUser(user).catch(error => {
       setIsLoading(false);
       setMessageClass('error-message-container-active')
       setUser('')
@@ -41,7 +41,7 @@ function Home() {
 
   useEffect(() => {
     if(user.name) setCardClass('user_card-container')
-  })
+  }, [user.name])
 
   return (
     <div className="App">

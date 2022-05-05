@@ -1,13 +1,13 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import RepoCard from './RepoCard/RepoCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
-import { useGoBack } from '../../services/goBack'
-import { useFetch } from '../../services/useFetch'
+import { useGoBack } from '../../customHooks/goBack'
+import { useFetch } from '../../customHooks/useFetch'
 
 const Repos = () => {
 
@@ -19,15 +19,16 @@ const Repos = () => {
 
     useEffect(() => {
       fetch(user.repos_url)     
-    }, [])
+    }, [fetch, user.repos_url])
     
+    console.log(repos)
 
   return (
     <div className="repo-container">
       <FontAwesomeIcon onClick={goBack} color='#393E46' icon={faArrowCircleLeft} size='3x' className="navigation-arrow"/>
       <h1 className="repo-container-text">{user.name} Repositories</h1>
       <div className='container'>  
-        {repos ? repos
+        {repos ? [...repos].sort((a, b) => b.forks_count - a.forks_count)
                       .map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>) 
                 : 
                 null}
@@ -38,4 +39,4 @@ const Repos = () => {
 }
 
 export default Repos
-//.sort((a, b) => b.forks_count - a.forks_count)
+//

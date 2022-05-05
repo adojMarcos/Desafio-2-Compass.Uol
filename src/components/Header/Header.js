@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons'
 import './style.css'
-import { useGoBack } from '../../services/goBack'
+import { useGoBack } from '../../customHooks/goBack'
 
 
 const Header = () => {
