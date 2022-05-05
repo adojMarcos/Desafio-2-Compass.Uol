@@ -7,27 +7,21 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { useGoBack } from '../../customHooks/goBack'
 import { useFetch } from '../../customHooks/useFetch'
-import { loadMoreRepos } from '../../reducer/ReposReducer'
-import axios from '../../services/axios'
-import { setFalse, setTrue } from '../../reducer/LoadingReducer'
+import { useLoader } from '../../customHooks/useLoader'
 
 const Starred = () => {
 
     const goBack = useGoBack()
     const [isLoading, fetch] = useFetch()
-    const [page, setPage] = useState(2)
 
-    const dispatch = useDispatch()
+    const [loader] = useLoader()
+
     const user = useSelector(state => state.user)
     const starredRepos = useSelector(state => state.repos)
     const load = useSelector(state => state.load)
 
     const handleLoadClick = async () => {
-      dispatch(setTrue())
-      const data = await axios.getRepos(user.starred_url.split('{')[0], page)
-      dispatch(loadMoreRepos(data))
-      dispatch(setFalse())
-      setPage(state => state + 1)
+      loader(user.starred_url.split('{')[0])
     }
 
     useEffect(() => {

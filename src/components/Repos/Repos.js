@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import RepoCard from './RepoCard/RepoCard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -8,28 +8,21 @@ import './style.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import { useGoBack } from '../../customHooks/goBack'
 import { useFetch } from '../../customHooks/useFetch'
-import axios from '../../services/axios'
 import { useDispatch } from 'react-redux'
-import { loadMoreRepos } from '../../reducer/ReposReducer'
-import { setFalse, setTrue } from '../../reducer/LoadingReducer'
+import { useLoader } from '../../customHooks/useLoader'
 
 const Repos = () => {
 
     const goBack = useGoBack()
     const [isLoading, fetch] = useFetch()
-    const [page, setPage] = useState(2)
-
+    const [ loader ] = useLoader()
     const dispatch = useDispatch()
     const repos = useSelector(state => state.repos)
     const user = useSelector(state => state.user)
     const load = useSelector(state => state.load)
 
     const handleLoadClick = async () => {
-      dispatch(setTrue())
-      const data = await axios.getRepos(user.repos_url, page)
-      dispatch(loadMoreRepos(data))
-      dispatch(setFalse())
-      setPage(state => state + 1)
+      loader(user.repos_url)
     }
 
     useEffect(() => {
