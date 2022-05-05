@@ -9,6 +9,7 @@ import { useGoBack } from '../../customHooks/goBack'
 import { useFetch } from '../../customHooks/useFetch'
 import { loadMoreRepos } from '../../reducer/ReposReducer'
 import axios from '../../services/axios'
+import { setFalse, setTrue } from '../../reducer/LoadingReducer'
 
 const Starred = () => {
 
@@ -19,10 +20,13 @@ const Starred = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user)
     const starredRepos = useSelector(state => state.repos)
+    const load = useSelector(state => state.load)
 
     const handleLoadClick = async () => {
+      dispatch(setTrue())
       const data = await axios.getRepos(user.starred_url.split('{')[0], page)
       dispatch(loadMoreRepos(data))
+      dispatch(setFalse())
       setPage(state => state + 1)
     }
 
@@ -38,7 +42,7 @@ const Starred = () => {
         {starredRepos && starredRepos.map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>)}
       </div>
       {isLoading && <LoadingSpinner />}
-      {!isLoading && <button className="load-button" onClick={handleLoadClick}>Load More</button>}
+      {!isLoading && <button className="load-button" onClick={handleLoadClick}>{load ? 'Loading...' : 'Load More'}</button>}
     </div>
   )
 }

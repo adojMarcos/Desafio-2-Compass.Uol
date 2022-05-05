@@ -11,8 +11,7 @@ import { useFetch } from '../../customHooks/useFetch'
 import axios from '../../services/axios'
 import { useDispatch } from 'react-redux'
 import { loadMoreRepos } from '../../reducer/ReposReducer'
-
-
+import { setFalse, setTrue } from '../../reducer/LoadingReducer'
 
 const Repos = () => {
 
@@ -23,10 +22,13 @@ const Repos = () => {
     const dispatch = useDispatch()
     const repos = useSelector(state => state.repos)
     const user = useSelector(state => state.user)
+    const load = useSelector(state => state.load)
 
     const handleLoadClick = async () => {
+      dispatch(setTrue())
       const data = await axios.getRepos(user.repos_url, page)
       dispatch(loadMoreRepos(data))
+      dispatch(setFalse())
       setPage(state => state + 1)
     }
 
@@ -42,7 +44,7 @@ const Repos = () => {
         {repos && [...repos].map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>)}
       </div>
       {isLoading && <LoadingSpinner />}
-      {!isLoading && <button className="load-button" onClick={handleLoadClick}>Load More</button>}
+      {!isLoading && <button className="load-button" onClick={handleLoadClick}>{load ? 'Loading...' : 'Load More'}</button>}
     </div>
   )
 }
