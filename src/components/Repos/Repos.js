@@ -19,7 +19,7 @@ const Repos = () => {
 
     useEffect(() => {
       fetch(user.repos_url)     
-    }, [fetch, user.repos_url])
+    }, [])
     
     console.log(repos)
 

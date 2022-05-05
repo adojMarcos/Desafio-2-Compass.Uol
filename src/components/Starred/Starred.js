@@ -20,7 +20,7 @@ const Starred = () => {
 
     useEffect(() => {
       fetch(user.starred_url.split('{')[0])
-    }, [fetch, user.starred_url])
+    }, [])
 
   return (
     <div className="repo-container">
