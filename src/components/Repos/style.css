@@ -58,6 +58,25 @@
     justify-content: center;
   }
 
+  .load-button  {
+    width: 10rem;
+    margin-top: 2rem;
+    padding: 10px;
+    background-color: #00ADB5;
+    border: none;
+    color: #EEEEEE;
+    border-radius: 3px;
+    font-family: 'Akshar', sans-serif;
+    transition: all 0.2s ease-in;
+  }
+  
+  .load-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .load-button  {
+    cursor: pointer;
+  }
 
   
   

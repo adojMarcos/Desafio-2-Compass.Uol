@@ -6,6 +6,10 @@ const reposSlice = createSlice({
     reducers: {
         setRepos(state, action) {
             return action.payload
+        },
+        loadMoreRepos(state, action) {
+            const newState = state.concat(action.payload)
+            return newState
         }, 
         cleanState(state) {
             return []
@@ -13,5 +17,5 @@ const reposSlice = createSlice({
     }
 })
 
-export const { setRepos, cleanState } = reposSlice.actions
+export const { setRepos, cleanState, loadMoreRepos } = reposSlice.actions
 export default reposSlice.reducer
