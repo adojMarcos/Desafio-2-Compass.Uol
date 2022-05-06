@@ -16,7 +16,7 @@ const Starred = () => {
 
     const [loader] = useLoader()
 
-    const { user, repos: starredRepos, load } = useSelector(state => state)
+    const { user, cards: starredRepos, load } = useSelector(state => state)
 
     useEffect(() => {
       fetch(user.starred_url.split('{')[0])

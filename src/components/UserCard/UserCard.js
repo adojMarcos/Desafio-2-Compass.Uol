@@ -10,15 +10,15 @@ const UserCard = ( { cardClass }  ) => {
   return (
       <div className={cardClass}>
           <img src={user.avatar_url} alt="user avatar" className="user_img" />
-          <p>{user.name}</p>
+          <p><a className="anchor-reset" target="_blank" href={user.html_url}>{user.name}</a></p>
           <p>{user.bio}</p>
           <div className="nav-user">
-              <Link to='followers'><span>{user.followers} Followers</span></Link>
-              <span>{user.following} Following</span>
+              <Link className="anchor-reset" to='followers'><span>{user.followers} Followers</span></Link>
+              <Link className="anchor-reset" to="following"><span>{user.following} Following</span></Link>
           </div>
           <div className='nav-buttons'>
-            <Link to='/repos'>{user ? <button type='button' >Repositorios</button> : null}</Link>
-            <Link to='/starred'>{user ? <button>Favoritos</button> : null}</Link>      
+            <Link to='/repos'>{user ? <button type='button' >Repos</button> : null}</Link>
+            <Link to='/starred'>{user ? <button type='button'>Starred</button> : null}</Link>      
           </div>
       </div>
   )

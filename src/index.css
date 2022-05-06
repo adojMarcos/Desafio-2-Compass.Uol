@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+button {
+  min-width: 8rem;
+}
+
 body {
   background-color: #EEEEEE;
   font-family: 'Akshar', sans-serif;

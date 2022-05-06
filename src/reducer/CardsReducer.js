@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const reposSlice = createSlice({
-    name: 'repos',
+const cardsSlice = createSlice({
+    name: 'cards',
     initialState: [],
     reducers: {
-        setRepos(state, action) {
+        setCards(state, action) {
             return action.payload
         },
-        loadMoreRepos(state, action) {
+        loadMoreCards(state, action) {
             const newState = state.concat(action.payload)
             return newState
         }, 
@@ -17,5 +17,5 @@ const reposSlice = createSlice({
     }
 })
 
-export const { setRepos, cleanState, loadMoreRepos } = reposSlice.actions
-export default reposSlice.reducer
+export const { setCards, cleanState, loadMoreCards } = cardsSlice.actions
+export default cardsSlice.reducer

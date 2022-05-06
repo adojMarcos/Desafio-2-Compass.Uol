@@ -17,7 +17,7 @@ const Repos = () => {
 
     const [ loader ] = useLoader()
 
-    const { user, repos, load } = useSelector(state => state)
+    const { user, cards: repos, load } = useSelector(state => state)
 
     useEffect(() => {
       fetch(user.repos_url)     

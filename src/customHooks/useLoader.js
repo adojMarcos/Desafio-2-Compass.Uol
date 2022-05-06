@@ -1,9 +1,8 @@
 import { setFalse, setTrue } from '../reducer/LoadingReducer'
-import { loadMoreRepos } from '../reducer/ReposReducer'
+import { loadMoreCards } from '../reducer/CardsReducer'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import axios from '../services/axios'
-import { loadMoreFollowers } from "../reducer/FollowersReducer";
 
 
 export const useLoader = () => {
@@ -13,18 +12,10 @@ export const useLoader = () => {
     const loader = async (url) => {
         dispatch(setTrue())
         const data = await axios.getRepos(url, page)
-        dispatch(loadMoreRepos(data))
+        dispatch(loadMoreCards(data))
         dispatch(setFalse())
         setPage(state => state + 1)
     }
 
-    const loaderFollowers = async (url) => {
-        dispatch(setTrue())
-        const data = await axios.getRepos(url, page)
-        dispatch(loadMoreFollowers(data))
-        dispatch(setFalse())
-        setPage(state => state + 1)
-    }
-
-    return [loader, loaderFollowers]
+    return [ loader ]
 }

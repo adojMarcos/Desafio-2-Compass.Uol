@@ -1,7 +1,13 @@
+.anchor-reset {
+  text-decoration: none;
+  color: #EEEEEE;
+}
+
 .user-card-container-inactive {
     opacity: 0;
   }
   
+ 
   .user_card-container {
     box-shadow: 5px 5px 15px 3px rgba(0,0,0,0.7);
     background-color: #393E46;
@@ -15,6 +21,8 @@
     font-size: 1.6rem;
     animation: fade-In 1.5s ease-in forwards;
   }
+
+ 
   
   @keyframes fade-In {
     0% {
@@ -25,9 +33,9 @@
     }
   }
 
-  .nav-user a {
-    text-decoration: none;
-    color: #EEEEEE;
+  .nav-user a:hover {
+    border-bottom: 1px solid #00ADB5;
+
   }
   
   .user_card-container > *:not(:first-child) {
@@ -50,7 +58,7 @@
     color: #EEEEEE;
     border-radius: 3px;
     font-family: 'Akshar', sans-serif;
-    transition: all 0.3s ease-in;
+    transition: all 0.2s ease-in;
   }
   
   .nav-buttons > a > button:hover {
