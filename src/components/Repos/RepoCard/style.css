@@ -38,7 +38,7 @@
 
   @media(min-width: 353px)  and (max-width:500px)
   {
-    .repo-item {
+    .repo-card {
         padding: 10px;
         min-width: 30%;
         max-width: 30%;
@@ -47,7 +47,7 @@
 
    @media(min-width: 100px)  and (max-width:414px)
   {
-    .repo-item {
+    .repo-card {
         padding: 10px;
         min-width: 100%;
         max-width: 100%;

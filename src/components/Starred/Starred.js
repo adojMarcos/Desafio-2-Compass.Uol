@@ -16,13 +16,7 @@ const Starred = () => {
 
     const [loader] = useLoader()
 
-    const user = useSelector(state => state.user)
-    const starredRepos = useSelector(state => state.repos)
-    const load = useSelector(state => state.load)
-
-    const handleLoadClick = async () => {
-      loader(user.starred_url.split('{')[0])
-    }
+    const { user, repos: starredRepos, load } = useSelector(state => state)
 
     useEffect(() => {
       fetch(user.starred_url.split('{')[0])
@@ -36,7 +30,7 @@ const Starred = () => {
         {starredRepos && starredRepos.map((repo, i) => <RepoCard key={repo.id} repo={repo} index={i}/>)}
       </div>
       {isLoading && <LoadingSpinner />}
-      {!isLoading && <button className="load-button" onClick={handleLoadClick}>{load ? 'Loading...' : 'Load More'}</button>}
+      {!isLoading && <button className="load-button" onClick={() => loader(user.starred_url.split('{')[0])}>{load ? 'Loading...' : 'Load More'}</button>}
     </div>
   )
 }

@@ -24,13 +24,19 @@
       opacity: 100%;
     }
   }
+
+  .nav-user a {
+    text-decoration: none;
+    color: #EEEEEE;
+  }
   
   .user_card-container > *:not(:first-child) {
     margin: 20px; 
   } 
   
   .user_card-container span {
-    padding: 10px
+    padding: 10px;
+    
   }
   
   .nav-buttons > a {
@@ -49,7 +55,7 @@
   
   .nav-buttons > a > button:hover {
     background-color: #018991;
-    transform: scaleX(1.1);
+    transform: scale(1.1);
   }
   
   .nav-buttons > a > button:hover {

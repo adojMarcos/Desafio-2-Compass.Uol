@@ -12,8 +12,8 @@ const UserCard = ( { cardClass }  ) => {
           <img src={user.avatar_url} alt="user avatar" className="user_img" />
           <p>{user.name}</p>
           <p>{user.bio}</p>
-          <div>
-              <span>{user.followers} Followers</span>
+          <div className="nav-user">
+              <Link to='followers'><span>{user.followers} Followers</span></Link>
               <span>{user.following} Following</span>
           </div>
           <div className='nav-buttons'>

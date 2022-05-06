@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from 'react-redux'
+import { cleanFollowersState, setFollowers } from "../reducer/FollowersReducer";
 import { setRepos, cleanState } from '../reducer/ReposReducer'
 import axios from '../services/axios'
 
@@ -14,7 +15,15 @@ export const useFetch = () => {
             dispatch(setRepos(data))
             setIsLoading(false)  
     }
+
+    const fetchFollowers = async (url) => {
+            dispatch(cleanFollowersState())
+            setIsLoading(true)
+            const data = await axios.getRepos(url)
+            dispatch(setFollowers(data))
+            setIsLoading(false) 
+    }
     
-    return [isLoading, fetch]
+    return [isLoading, fetch, fetchFollowers]
 
 }

@@ -5,6 +5,8 @@ import Starred from './components/Starred/Starred';
 import Home from './components/Home/Home';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Followers from './components/Followers/Followers';
+
 
 const Router = () => {
   return (
@@ -14,6 +16,7 @@ const Router = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="repos" element={<Repos />} />
                   <Route path="starred" element={<Starred />} />
+                  <Route path="followers" element={<Followers />} />
             </Routes>   
       <Footer />
     </BrowserRouter>

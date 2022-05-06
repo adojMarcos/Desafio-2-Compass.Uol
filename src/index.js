@@ -7,11 +7,13 @@ import ReposReducer from './reducer/ReposReducer';
 import App from './App';
 import { Provider } from 'react-redux';
 import LoadingReducer from './reducer/LoadingReducer';
+import FollowersSlice from './reducer/FollowersReducer'
 
 const reducer = {
   user: UserReducer,
   repos: ReposReducer,
-  load: LoadingReducer
+  load: LoadingReducer,
+  followers: FollowersSlice
 }
 
 const store = configureStore({reducer})
